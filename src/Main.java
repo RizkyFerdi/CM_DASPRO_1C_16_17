@@ -78,6 +78,9 @@ public class Main {
     }
 
     static void tambahItemBaru() {
+        if (arrItem[9][0] != null) {
+            pilihMenu();
+        }
         System.out.print("Masukkan Nama Item Baru: ");
         String itemBaru = sc.nextLine();
         itemBaru = sc.nextLine();
