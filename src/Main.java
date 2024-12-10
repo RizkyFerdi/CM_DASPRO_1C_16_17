@@ -1,12 +1,12 @@
 import java.util.Scanner;
 
 public class Main {
-
-    static String[][] arrItem;
-    static int[] stokItem;
+    static String[] kolom ={"No","Nama Item","Kategori","Stok"};
+    static String[][] arrItem={{ "Kopi","Minuman" },{ "Teh","Minuman" },{ "Susu","Minuman" }};
+    static int[] stokItem={3,4,5};
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) throws Exception {
-
+        pilihMenu();
 
     }
 
@@ -19,13 +19,16 @@ public class Main {
         int pilihMenu = sc.nextInt();
 
         if (pilihMenu == 1){
-            tampilMenu();
+            tampilMenu(arrItem,stokItem,kolom);
         }
         else if (pilihMenu == 2){
             tambahStok();
         }
         else if (pilihMenu == 3){
-            tambahItemBaru();
+            for (int i = 0; i < arrItem.length; i++) {
+                
+            }
+             tambahItemBaru();
         }
         else if (pilihMenu == 5){
             System.exit(0);
@@ -33,7 +36,28 @@ public class Main {
 
     }
 
-    static void tampilMenu(){}
+    static void tampilMenu(String[][] arrItem,int[] stokItem,String[] kolom){
+        int nomer=0;
+        int stok=0;
+        System.out.println("No   Nama Item       Kategori       Stok");
+        System.out.println("----------------------------------------");
+        for (int i = 0; i < kolom.length-1; i++) {
+            for (int j = 0; j < arrItem[i].length; j++) {
+                if (j==0) {
+                    System.out.print((++nomer)+"    ");
+                    
+                }
+                System.out.print(arrItem[i][j]);
+                for (int j2 = String.valueOf(arrItem[i][j]).length(); j2 < 16; j2++) {
+                    System.out.print(" ");
+                }
+            }
+                System.out.println(stokItem[stok++]);
+            
+        }
+        System.out.println();
+        pilihMenu();
+    }
 
     static int tambahStok(){return 0;}
     static void tambahItemBaru(){};
