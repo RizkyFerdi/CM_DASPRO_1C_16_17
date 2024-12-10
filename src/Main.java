@@ -40,8 +40,11 @@ public class Main {
 
             }
             tambahItemBaru();
-        } else if (pilihMenu == 5) {
+        } else if (pilihMenu == 4) {
             System.exit(0);
+        } else {
+            System.out.println("Menu Tidak Tersedia");
+            pilihMenu();
         }
 
     }
@@ -113,6 +116,7 @@ public class Main {
                 arrItem[i][1] = kategori;
                 stokItem[i] = stokBaru;
                 System.out.println("Item berhasil ditambahkan.");
+                tampilMenu();
                 break;
             }
         }
