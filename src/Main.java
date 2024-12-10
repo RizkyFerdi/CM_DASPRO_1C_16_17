@@ -9,7 +9,7 @@ public class Main {
         arrItem[2] = new String[] { "Teh Tarik", "Minuman" };
     }
     static int[] stokItem = new int[10];
-    static{
+    static {
         stokItem[0] = 10;
         stokItem[1] = 5;
         stokItem[2] = 8;
@@ -64,7 +64,7 @@ public class Main {
                 }
             }
             if (arrItem[i][0] != null) {
-                
+
                 System.out.println(stokItem[stok++]);
             }
 
@@ -74,11 +74,26 @@ public class Main {
     }
 
     static int tambahStok() {
-        return 0;
+        System.out.print("Masukkan Nomor Item: ");
+        int noItem = sc.nextInt();
+        System.out.print("Masukkan Jumlah Stok yang Ingin Ditambahkan: ");
+        int stokBaru = sc.nextInt();
+        for (int i = 0; i < arrItem.length; i++) {
+            if (noItem - 1 == i && arrItem[i][0] != null && stokBaru > 0) {
+                stokItem[i] += stokBaru;
+                break;
+            } else {
+                System.out.println("Item Tidak Ada / Jumlah Stok Tidak Valid");
+                break;
+            }
+        }
+        pilihMenu();
+        return stokItem[noItem];
     }
 
     static void tambahItemBaru() {
         if (arrItem[9][0] != null) {
+            System.out.println("Jumlah item sudah mencapai batas maksimal");
             pilihMenu();
         }
         System.out.print("Masukkan Nama Item Baru: ");
@@ -89,15 +104,20 @@ public class Main {
         System.out.print("Masukkan Jumlah Stok Awal: ");
         int stokBaru = sc.nextInt();
 
+        if(stokBaru <= 0 ){
+            System.out.println("Stok tidak valid");
+            pilihMenu();
+        }
+
         for (int i = 0; i < arrItem.length; i++) {
-            if (arrItem[i][0] == null) {
+            if (arrItem[i][0] == null ) {
                 arrItem[i][0] = itemBaru;
                 arrItem[i][1] = kategori;
                 stokItem[i] = stokBaru;
+                System.out.println("Item berhasil ditambahkan.");
                 break;
-            }
+            } 
         }
-        System.out.println("Item berhasil ditambahkan.");
         pilihMenu();
 
     };
