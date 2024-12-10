@@ -78,14 +78,12 @@ public class Main {
         int noItem = sc.nextInt();
         System.out.print("Masukkan Jumlah Stok yang Ingin Ditambahkan: ");
         int stokBaru = sc.nextInt();
-        for (int i = 0; i < arrItem.length; i++) {
-            if (noItem - 1 == i && arrItem[i][0] != null && stokBaru > 0) {
-                stokItem[i] += stokBaru;
-                break;
-            } else {
-                System.out.println("Item Tidak Ada / Jumlah Stok Tidak Valid");
-                break;
-            }
+        if (arrItem[noItem - 1][0] != null && stokBaru > 0) {
+
+            stokItem[noItem - 1] += stokBaru;
+            System.out.println("Stok berhasil ditambahkan");
+        } else {
+            System.out.println("Item Tidak Ada / Jumlah Stok Tidak Valid");
         }
         pilihMenu();
         return stokItem[noItem];
@@ -104,19 +102,19 @@ public class Main {
         System.out.print("Masukkan Jumlah Stok Awal: ");
         int stokBaru = sc.nextInt();
 
-        if(stokBaru <= 0 ){
+        if (stokBaru <= 0) {
             System.out.println("Stok tidak valid");
             pilihMenu();
         }
 
         for (int i = 0; i < arrItem.length; i++) {
-            if (arrItem[i][0] == null ) {
+            if (arrItem[i][0] == null) {
                 arrItem[i][0] = itemBaru;
                 arrItem[i][1] = kategori;
                 stokItem[i] = stokBaru;
                 System.out.println("Item berhasil ditambahkan.");
                 break;
-            } 
+            }
         }
         pilihMenu();
 
