@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class Main {
     static String[] kolom ={"No","Nama Item","Kategori","Stok"};
-    static String[][] arrItem={{ "Kopi","Minuman" },{ "Teh","Minuman" },{ "Susu","Minuman" }};
-    static int[] stokItem={3,4,5};
+    static String[][] arrItem={{ "Kopi","Minuman" },{ "Teh","Minuman" },{ "Susu","Minuman" },{"Kacang","Makanan"}};
+    static int[] stokItem={3,4,5,6};
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) throws Exception {
         pilihMenu();
@@ -19,7 +19,7 @@ public class Main {
         int pilihMenu = sc.nextInt();
 
         if (pilihMenu == 1){
-            tampilMenu(arrItem,stokItem,kolom);
+            tampilMenu();
         }
         else if (pilihMenu == 2){
             tambahStok();
@@ -36,13 +36,15 @@ public class Main {
 
     }
 
-    static void tampilMenu(String[][] arrItem,int[] stokItem,String[] kolom){
+    static void tampilMenu(){
         int nomer=0;
         int stok=0;
-        System.out.println("No   Nama Item       Kategori       Stok");
-        System.out.println("----------------------------------------");
-        for (int i = 0; i < kolom.length-1; i++) {
+        System.out.println("No   Nama Item       Kategori        Stok");
+        System.out.println("------------------------------------------");
+        for (int i = 0; i < arrItem.length; i++) {
             for (int j = 0; j < arrItem[i].length; j++) {
+                if(arrItem[i][j] != null){
+
                 if (j==0) {
                     System.out.print((++nomer)+"    ");
                     
@@ -51,6 +53,8 @@ public class Main {
                 for (int j2 = String.valueOf(arrItem[i][j]).length(); j2 < 16; j2++) {
                     System.out.print(" ");
                 }
+            }
+
             }
                 System.out.println(stokItem[stok++]);
             
